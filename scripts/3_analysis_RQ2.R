@@ -27,6 +27,9 @@ pre_downloads <- df_rq2_clean %>%
 round(mean(pre_downloads$number_downloads), 3)
 round(sd(pre_downloads$number_downloads), 3)
 
+median(pre_downloads$number_downloads)
+IQR(pre_downloads$number_downloads)
+
 # post-lockdown
 
 post_downloads <- df_rq2_clean %>%
@@ -34,6 +37,9 @@ post_downloads <- df_rq2_clean %>%
 
 round(mean(post_downloads$number_downloads), 3)
 round(sd(post_downloads$number_downloads), 3)
+
+median(post_downloads$number_downloads)
+IQR(post_downloads$number_downloads)
 
 # check ACF and PACF to identify plausible values for the AR and MA terms
 
@@ -93,17 +99,20 @@ p
 
 # plot values
 
-rq2_plot <- ggplot(data = df_rq2_clean, aes(x = trend, y = number_downloads))+
-  geom_line(aes(x = trend, y = number_downloads), colour = "black")+
-  geom_smooth(aes(x = trend, y = fitted(mod3b_downloads$gam)), colour = "red")+
-  coord_cartesian(ylim = c(0, 300))+
+rq2_plot <- ggplot(data = df_rq2_clean, aes(x = trend, y = number_downloads)) +
+  geom_line(aes(x = trend, y = number_downloads), colour = "black") +
+  geom_point(aes(x = trend, y = fitted(mod3b_downloads$gam)), colour = "red") +
+  geom_line(aes(x = trend, y = fitted(mod3b_downloads$gam)), colour = "red") +
+  coord_cartesian(ylim = c(0, 300)) +
   labs(x = "Time", y = "Number of downloads") +
   scale_x_continuous(breaks = c(9, 39, 70, 100, 131, 162, 192, 223, 253, 284, 315, 344, 375, 405, 436, 466), 
                      labels = c("Apr-19", "May-19", "Jun-19", "Jul-19", "Aug-19", "Sept-19", "Oct-19",
                                 "Nov-19", "Dec-19", "Jan-20", "Feb-20", "Mar-20", "Apr-20", "May-20", "Jun-20", "Jul-20")) +
   geom_vline(xintercept = 367, linetype = "dotted", color = "blue", size = 1) +
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank())
+  theme_bw() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
+  theme(axis.text = element_text(size = 12)) +
+  theme(axis.title = element_text(size = 17))
 
 if(!file.exists(here("outputs", "rq2_plot.png"))) ggsave(rq2_plot, filename = here("outputs", "rq2_plot.png"), 
                                                          dpi = 320, height = 8, width = 10)

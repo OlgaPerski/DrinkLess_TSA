@@ -143,17 +143,20 @@ p
 
 # plot values
 
-rq3be_sessions <- ggplot(data = df_rq3be_clean, aes(x = trend, y = total_number_sessions))+
-  geom_line(aes(x = trend, y = total_number_sessions), colour = "black")+
-  geom_smooth(aes(x = trend, y = fitted(mod1b_sessions$gam)), colour = "red")+
-  coord_cartesian(ylim = c(0, 55))+
+rq3be_sessions <- ggplot(data = df_rq3be_clean, aes(x = trend, y = total_number_sessions)) +
+  geom_line(aes(x = trend, y = total_number_sessions), colour = "black") +
+  geom_point(aes(x = trend, y = fitted(mod1b_sessions$gam)), colour = "red") +
+  geom_line(aes(x = trend, y = fitted(mod1b_sessions$gam)), colour = "red") +
+  coord_cartesian(ylim = c(0, 55)) +
   labs(x = "Time", y = "Number of logins") +
   scale_x_continuous(breaks = c(9, 39, 70, 100, 131, 162, 192, 223, 253, 284, 315, 344, 375, 405, 436), 
                      labels = c("Apr-19", "May-19", "Jun-19", "Jul-19", "Aug-19", "Sept-19", "Oct-19",
                                 "Nov-19", "Dec-19", "Jan-20", "Feb-20", "Mar-20", "Apr-20", "May-20", "Jun-20")) +
   geom_vline(xintercept = 367, linetype = "dotted", color = "blue", size = 1) +
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank())
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
+  theme(axis.text = element_text(size = 12)) +
+  theme(axis.title = element_text(size = 17))
 
 if(!file.exists(here("outputs", "rq3be_sessions.png"))) ggsave(rq3be_sessions, filename = here("outputs", "rq3be_sessions.png"), 
                                                             dpi = 320, height = 8, width = 10)
@@ -217,17 +220,20 @@ p
 
 # plot values
 
-rq3be_days <- ggplot(data = df_rq3be_clean, aes(x = trend, y = no_days_used))+
-  geom_line(aes(x = trend, y = no_days_used), colour = "black")+
-  geom_smooth(aes(x = trend, y = fitted(mod1b_days$gam)), colour = "red")+
-  coord_cartesian(ylim = c(0, 28))+
+rq3be_days <- ggplot(data = df_rq3be_clean, aes(x = trend, y = no_days_used)) +
+  geom_line(aes(x = trend, y = no_days_used), colour = "black") +
+  geom_point(aes(x = trend, y = fitted(mod1b_days$gam)), colour = "red") +
+  geom_line(aes(x = trend, y = fitted(mod1b_days$gam)), colour = "red") +
+  coord_cartesian(ylim = c(0, 28)) +
   labs(x = "Time", y = "Number of days used") +
   scale_x_continuous(breaks = c(9, 39, 70, 100, 131, 162, 192, 223, 253, 284, 315, 344, 375, 405, 436), 
                      labels = c("Apr-19", "May-19", "Jun-19", "Jul-19", "Aug-19", "Sept-19", "Oct-19",
                                 "Nov-19", "Dec-19", "Jan-20", "Feb-20", "Mar-20", "Apr-20", "May-20", "Jun-20")) +
   geom_vline(xintercept = 367, linetype = "dotted", color = "blue", size = 1) +
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank())
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
+  theme(axis.text = element_text(size = 12)) +
+  theme(axis.title = element_text(size = 17))
 
 if(!file.exists(here("outputs", "rq3be_days.png"))) ggsave(rq3be_days, filename = here("outputs", "rq3be_days.png"), 
                                                             dpi = 320, height = 8, width = 10)
@@ -289,17 +295,20 @@ p
 
 # plot values
 
-rq3be_screens <- ggplot(data = df_rq3be_clean, aes(x = trend, y = proportion_screens_viewed))+
-  geom_line(aes(x = trend, y = proportion_screens_viewed), colour = "black")+
-  geom_smooth(aes(x = trend, y = fitted(mod1b_screens$gam)), colour = "red")+
-  coord_cartesian(ylim = c(0.15, 0.6))+
+rq3be_screens <- ggplot(data = df_rq3be_clean, aes(x = trend, y = proportion_screens_viewed)) +
+  geom_line(aes(x = trend, y = proportion_screens_viewed), colour = "black") +
+  geom_point(aes(x = trend, y = fitted(mod1b_screens$gam)), colour = "red") +
+  geom_line(aes(x = trend, y = fitted(mod1b_screens$gam)), colour = "red") +
+  coord_cartesian(ylim = c(0.15, 0.6)) +
   labs(x = "Time", y = "Percentage screens viewed") +
   scale_x_continuous(breaks = c(9, 39, 70, 100, 131, 162, 192, 223, 253, 284, 315, 344, 375, 405, 436), 
                      labels = c("Apr-19", "May-19", "Jun-19", "Jul-19", "Aug-19", "Sept-19", "Oct-19",
                                 "Nov-19", "Dec-19", "Jan-20", "Feb-20", "Mar-20", "Apr-20", "May-20", "Jun-20")) +
   geom_vline(xintercept = 367, linetype = "dotted", color = "blue", size = 1) +
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank())
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
+  theme(axis.text = element_text(size = 12)) +
+  theme(axis.title = element_text(size = 17))
 
 if(!file.exists(here("outputs", "rq3be_screens.png"))) ggsave(rq3be_screens, filename = here("outputs", "rq3be_screens.png"), 
                                                            dpi = 320, height = 8, width = 10)
@@ -361,17 +370,20 @@ p
 
 # plot values
 
-rq3be_time <- ggplot(data = df_rq3be_clean, aes(x = trend, y = time_minutes))+
-  geom_line(aes(x = trend, y = time_minutes), colour = "black")+
-  geom_smooth(aes(x = trend, y = fitted(mod1b_time$gam)), colour = "red")+
-  coord_cartesian(ylim = c(5, 280))+
+rq3be_time <- ggplot(data = df_rq3be_clean, aes(x = trend, y = time_minutes)) +
+  geom_line(aes(x = trend, y = time_minutes), colour = "black") +
+  geom_point(aes(x = trend, y = fitted(mod1b_time$gam)), colour = "red") +
+  geom_line(aes(x = trend, y = fitted(mod1b_time$gam)), colour = "red") +
+  coord_cartesian(ylim = c(5, 280)) +
   labs(x = "Time", y = "Time spent on app") +
   scale_x_continuous(breaks = c(9, 39, 70, 100, 131, 162, 192, 223, 253, 284, 315, 344, 375, 405, 436), 
                      labels = c("Apr-19", "May-19", "Jun-19", "Jul-19", "Aug-19", "Sept-19", "Oct-19",
                                 "Nov-19", "Dec-19", "Jan-20", "Feb-20", "Mar-20", "Apr-20", "May-20", "Jun-20")) +
   geom_vline(xintercept = 367, linetype = "dotted", color = "blue", size = 1) +
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank())
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
+  theme(axis.text = element_text(size = 12)) +
+  theme(axis.title = element_text(size = 17))
 
 if(!file.exists(here("outputs", "rq3be_time.png"))) ggsave(rq3be_time, filename = here("outputs", "rq3be_time.png"), 
                                                               dpi = 320, height = 8, width = 10)
@@ -433,17 +445,20 @@ p
 
 # plot values
 
-rq3be_units <- ggplot(data = df_rq3be_clean, aes(x = trend, y = drinkrecord_units))+
-  geom_line(aes(x = trend, y = drinkrecord_units), colour = "black")+
-  geom_smooth(aes(x = trend, y = fitted(mod1b_units$gam)), colour = "red")+
-  coord_cartesian(ylim = c(5, 370))+
+rq3be_units <- ggplot(data = df_rq3be_clean, aes(x = trend, y = drinkrecord_units)) +
+  geom_line(aes(x = trend, y = drinkrecord_units), colour = "black") +
+  geom_point(aes(x = trend, y = fitted(mod1b_units$gam)), colour = "red") +
+  geom_line(aes(x = trend, y = fitted(mod1b_units$gam)), colour = "red") +
+  coord_cartesian(ylim = c(5, 370)) +
   labs(x = "Time", y = "Alcohol units") +
   scale_x_continuous(breaks = c(9, 39, 70, 100, 131, 162, 192, 223, 253, 284, 315, 344, 375, 405, 436), 
                      labels = c("Apr-19", "May-19", "Jun-19", "Jul-19", "Aug-19", "Sept-19", "Oct-19",
                                 "Nov-19", "Dec-19", "Jan-20", "Feb-20", "Mar-20", "Apr-20", "May-20", "Jun-20")) +
   geom_vline(xintercept = 367, linetype = "dotted", color = "blue", size = 1) +
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank())
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
+  theme(axis.text = element_text(size = 12)) +
+  theme(axis.title = element_text(size = 17))
 
 if(!file.exists(here("outputs", "rq3be_units.png"))) ggsave(rq3be_units, filename = here("outputs", "rq3be_units.png"), 
                                                            dpi = 320, height = 8, width = 10)
@@ -505,17 +520,20 @@ p
 
 # plot values
 
-rq3be_heavy <- ggplot(data = df_rq3be_clean, aes(x = trend, y = heavy_drinking_day))+
-  geom_line(aes(x = trend, y = heavy_drinking_day), colour = "black")+
-  geom_smooth(aes(x = trend, y = fitted(mod1b_heavy$gam)), colour = "red")+
-  coord_cartesian(ylim = c(0, 30))+
+rq3be_heavy <- ggplot(data = df_rq3be_clean, aes(x = trend, y = heavy_drinking_day)) +
+  geom_line(aes(x = trend, y = heavy_drinking_day), colour = "black") +
+  geom_point(aes(x = trend, y = fitted(mod1b_heavy$gam)), colour = "red") +
+  geom_line(aes(x = trend, y = fitted(mod1b_heavy$gam)), colour = "red") +
+  coord_cartesian(ylim = c(0, 30)) +
   labs(x = "Time", y = "Heavy drinking days") +
   scale_x_continuous(breaks = c(9, 39, 70, 100, 131, 162, 192, 223, 253, 284, 315, 344, 375, 405, 436), 
                      labels = c("Apr-19", "May-19", "Jun-19", "Jul-19", "Aug-19", "Sept-19", "Oct-19",
                                 "Nov-19", "Dec-19", "Jan-20", "Feb-20", "Mar-20", "Apr-20", "May-20", "Jun-20")) +
   geom_vline(xintercept = 367, linetype = "dotted", color = "blue", size = 1) +
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank())
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
+  theme(axis.text = element_text(size = 12)) +
+  theme(axis.title = element_text(size = 17))
 
 if(!file.exists(here("outputs", "rq3be_heavy.png"))) ggsave(rq3be_heavy, filename = here("outputs", "rq3be_heavy.png"), 
                                                             dpi = 320, height = 8, width = 10)
@@ -577,17 +595,20 @@ p
 
 # plot values
 
-rq3be_free <- ggplot(data = df_rq3be_clean, aes(x = trend, y = alc_free_days))+
-  geom_line(aes(x = trend, y = alc_free_days), colour = "black")+
-  geom_smooth(aes(x = trend, y = fitted(mod1b_free$gam)), colour = "red")+
-  coord_cartesian(ylim = c(0, 70))+
+rq3be_free <- ggplot(data = df_rq3be_clean, aes(x = trend, y = alc_free_days)) +
+  geom_line(aes(x = trend, y = alc_free_days), colour = "black") +
+  geom_point(aes(x = trend, y = fitted(mod1b_free$gam)), colour = "red") +
+  geom_line(aes(x = trend, y = fitted(mod1b_free$gam)), colour = "red") +
+  coord_cartesian(ylim = c(0, 70)) +
   labs(x = "Time", y = "Alcohol free days") +
   scale_x_continuous(breaks = c(9, 39, 70, 100, 131, 162, 192, 223, 253, 284, 315, 344, 375, 405, 436), 
                      labels = c("Apr-19", "May-19", "Jun-19", "Jul-19", "Aug-19", "Sept-19", "Oct-19",
                                 "Nov-19", "Dec-19", "Jan-20", "Feb-20", "Mar-20", "Apr-20", "May-20", "Jun-20")) +
   geom_vline(xintercept = 367, linetype = "dotted", color = "blue", size = 1) +
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank())
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
+  theme(axis.text = element_text(size = 12)) +
+  theme(axis.title = element_text(size = 17))
 
 if(!file.exists(here("outputs", "rq3be_free.png"))) ggsave(rq3be_free, filename = here("outputs", "rq3be_free.png"), 
                                                             dpi = 320, height = 8, width = 10)

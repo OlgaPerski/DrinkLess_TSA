@@ -122,17 +122,20 @@ p
 
 # plot values
 
-rq3a_gender <- ggplot(data = df_rq3a_clean, aes(x = trend, y = gender))+
-  geom_line(aes(x = trend, y = gender), colour = "black")+
-  geom_smooth(aes(x = trend, y = fitted(mod1b_gender$gam)), colour = "red")+
-  coord_cartesian(ylim = c(0, 1))+
+rq3a_gender <- ggplot(data = df_rq3a_clean, aes(x = trend, y = gender)) +
+  geom_line(aes(x = trend, y = gender), colour = "black") +
+  geom_point(aes(x = trend, y = fitted(mod1b_gender$gam)), colour = "red") +
+  geom_line(aes(x = trend, y = fitted(mod1b_gender$gam)), colour = "red") +
+  coord_cartesian(ylim = c(0, 1)) +
   labs(x = "Time", y = "% Female") +
   scale_x_continuous(breaks = c(9, 39, 70, 100, 131, 162, 192, 223, 253, 284, 315, 344, 375, 405, 436, 466), 
                      labels = c("Apr-19", "May-19", "Jun-19", "Jul-19", "Aug-19", "Sept-19", "Oct-19",
                                 "Nov-19", "Dec-19", "Jan-20", "Feb-20", "Mar-20", "Apr-20", "May-20", "Jun-20", "Jul-20")) +
   geom_vline(xintercept = 367, linetype = "dotted", color = "blue", size = 1) +
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank())
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
+  theme(axis.text = element_text(size = 12)) +
+  theme(axis.title = element_text(size = 17))
 
 if(!file.exists(here("outputs", "rq3a_gender.png"))) ggsave(rq3a_gender, filename = here("outputs", "rq3a_gender.png"), 
                                                          dpi = 320, height = 8, width = 10)
@@ -194,17 +197,20 @@ p
 
 # plot values
 
-rq3a_age <- ggplot(data = df_rq3a_clean, aes(x = trend, y = age))+
-  geom_line(aes(x = trend, y = age), colour = "black")+
-  geom_smooth(aes(x = trend, y = fitted(mod1b_age$gam)), colour = "red")+
-  coord_cartesian(ylim = c(20, 62))+
+rq3a_age <- ggplot(data = df_rq3a_clean, aes(x = trend, y = age)) +
+  geom_line(aes(x = trend, y = age), colour = "black") +
+  geom_point(aes(x = trend, y = fitted(mod1b_age$gam)), colour = "red") +
+  geom_line(aes(x = trend, y = fitted(mod1b_age$gam)), colour = "red") +
+  coord_cartesian(ylim = c(20, 62)) +
   labs(x = "Time", y = "Mean age") +
   scale_x_continuous(breaks = c(9, 39, 70, 100, 131, 162, 192, 223, 253, 284, 315, 344, 375, 405, 436, 466), 
                      labels = c("Apr-19", "May-19", "Jun-19", "Jul-19", "Aug-19", "Sept-19", "Oct-19",
                                 "Nov-19", "Dec-19", "Jan-20", "Feb-20", "Mar-20", "Apr-20", "May-20", "Jun-20", "Jul-20")) +
   geom_vline(xintercept = 367, linetype = "dotted", color = "blue", size = 1) +
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank())
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
+  theme(axis.text = element_text(size = 12)) +
+  theme(axis.title = element_text(size = 17))
 
 if(!file.exists(here("outputs", "rq3a_age.png"))) ggsave(rq3a_age, filename = here("outputs", "rq3a_age.png"), 
                                                             dpi = 320, height = 8, width = 10)
@@ -266,17 +272,20 @@ p
 
 # plot values
 
-rq3a_employment <- ggplot(data = df_rq3a_clean, aes(x = trend, y = employment_type))+
-  geom_line(aes(x = trend, y = employment_type), colour = "black")+
-  geom_smooth(aes(x = trend, y = fitted(mod1b_employment$gam)), colour = "red")+
-  coord_cartesian(ylim = c(0, 1))+
+rq3a_employment <- ggplot(data = df_rq3a_clean, aes(x = trend, y = employment_type)) +
+  geom_line(aes(x = trend, y = employment_type), colour = "black") +
+  geom_point(aes(x = trend, y = fitted(mod1b_employment$gam)), colour = "red") +
+  geom_line(aes(x = trend, y = fitted(mod1b_employment$gam)), colour = "red") +
+  coord_cartesian(ylim = c(0, 1)) +
   labs(x = "Time", y = "% Employment type") +
   scale_x_continuous(breaks = c(9, 39, 70, 100, 131, 162, 192, 223, 253, 284, 315, 344, 375, 405, 436, 466), 
                      labels = c("Apr-19", "May-19", "Jun-19", "Jul-19", "Aug-19", "Sept-19", "Oct-19",
                                 "Nov-19", "Dec-19", "Jan-20", "Feb-20", "Mar-20", "Apr-20", "May-20", "Jun-20", "Jul-20")) +
   geom_vline(xintercept = 367, linetype = "dotted", color = "blue", size = 1) +
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank())
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
+  theme(axis.text = element_text(size = 12)) +
+  theme(axis.title = element_text(size = 17))
 
 if(!file.exists(here("outputs", "rq3a_employment.png"))) ggsave(rq3a_employment, filename = here("outputs", "rq3a_employment.png"), 
                                                          dpi = 320, height = 8, width = 10)
@@ -338,17 +347,20 @@ p
 
 # plot values
 
-rq3a_AUDIT <- ggplot(data = df_rq3a_clean, aes(x = trend, y = AUDIT_score))+
-  geom_line(aes(x = trend, y = AUDIT_score), colour = "black")+
-  geom_smooth(aes(x = trend, y = fitted(mod1b_AUDIT$gam)), colour = "red")+
-  coord_cartesian(ylim = c(8, 30))+
+rq3a_AUDIT <- ggplot(data = df_rq3a_clean, aes(x = trend, y = AUDIT_score)) +
+  geom_line(aes(x = trend, y = AUDIT_score), colour = "black") +
+  geom_point(aes(x = trend, y = fitted(mod1b_AUDIT$gam)), colour = "red") +
+  geom_line(aes(x = trend, y = fitted(mod1b_AUDIT$gam)), colour = "red") +
+  coord_cartesian(ylim = c(8, 30)) +
   labs(x = "Time", y = "Mean AUDIT score") +
   scale_x_continuous(breaks = c(9, 39, 70, 100, 131, 162, 192, 223, 253, 284, 315, 344, 375, 405, 436, 466), 
                      labels = c("Apr-19", "May-19", "Jun-19", "Jul-19", "Aug-19", "Sept-19", "Oct-19",
                                 "Nov-19", "Dec-19", "Jan-20", "Feb-20", "Mar-20", "Apr-20", "May-20", "Jun-20", "Jul-20")) +
   geom_vline(xintercept = 367, linetype = "dotted", color = "blue", size = 1) +
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank())
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
+  theme(axis.text = element_text(size = 12)) +
+  theme(axis.title = element_text(size = 17))
 
 if(!file.exists(here("outputs", "rq3a_AUDIT.png"))) ggsave(rq3a_AUDIT, filename = here("outputs", "rq3a_AUDIT.png"), 
                                                                 dpi = 320, height = 8, width = 10)
@@ -410,17 +422,20 @@ p
 
 # plot values
 
-rq3a_at_risk <- ggplot(data = df_rq3a_clean, aes(x = trend, y = at_risk))+
-  geom_line(aes(x = trend, y = at_risk), colour = "black")+
-  geom_smooth(aes(x = trend, y = fitted(mod2b_at_risk$gam)), colour = "red")+
-  coord_cartesian(ylim = c(0.35, 1))+
+rq3a_at_risk <- ggplot(data = df_rq3a_clean, aes(x = trend, y = at_risk)) +
+  geom_line(aes(x = trend, y = at_risk), colour = "black") +
+  geom_point(aes(x = trend, y = fitted(mod2b_at_risk$gam)), colour = "red") +
+  geom_line(aes(x = trend, y = fitted(mod2b_at_risk$gam)), colour = "red") +
+  coord_cartesian(ylim = c(0.35, 1)) +
   labs(x = "Time", y = "% At risk of alcohol dependence") +
   scale_x_continuous(breaks = c(9, 39, 70, 100, 131, 162, 192, 223, 253, 284, 315, 344, 375, 405, 436, 466), 
                      labels = c("Apr-19", "May-19", "Jun-19", "Jul-19", "Aug-19", "Sept-19", "Oct-19",
                                 "Nov-19", "Dec-19", "Jan-20", "Feb-20", "Mar-20", "Apr-20", "May-20", "Jun-20", "Jul-20")) +
   geom_vline(xintercept = 367, linetype = "dotted", color = "blue", size = 1) +
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank())
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
+  theme(axis.text = element_text(size = 12)) +
+  theme(axis.title = element_text(size = 17))
 
 if(!file.exists(here("outputs", "rq3a_at_risk.png"))) ggsave(rq3a_at_risk, filename = here("outputs", "rq3a_at_risk.png"), 
                                                            dpi = 320, height = 8, width = 10)
